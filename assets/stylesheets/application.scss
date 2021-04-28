@@ -2,9 +2,23 @@ body {
   font-family: Helvetica;
 }
 
-#root {
+#root > div {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.left-half {
+  height: 100vh;
+  width: 100%;
+  flex: 0 0 65%;
+  background: rgb(255, 227, 227);
+}
+
+.right-half {
+  height: 100vh;
+  width: 100%;
+  flex: 0 0 35%;
+  background: rgb(210, 210, 232);
 }
