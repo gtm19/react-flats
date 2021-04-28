@@ -4,7 +4,7 @@ import FlatList from './flat_list';
 import Map from './map';
 
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="app">
       <FlatList />
