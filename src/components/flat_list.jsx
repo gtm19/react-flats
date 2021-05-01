@@ -2,7 +2,7 @@ import React from "react";
 import Flat from "./flat";
 
 const FlatList = (props) => {
-  const { flats, selected } = props;
+  const { flats, selected, updateFlat } = props;
 
   return (
     <div className="flat-list">
@@ -16,6 +16,8 @@ const FlatList = (props) => {
               priceCurrency={flat.priceCurrency}
               selected={flat.id === selected.id}
               key={flat.id}
+              id={flat.id}
+              updateFlat={updateFlat}
             />
           );
         })

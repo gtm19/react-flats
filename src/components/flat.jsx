@@ -6,7 +6,9 @@ const Flat = (props) => {
     imageUrl,
     price,
     priceCurrency,
-    selected
+    selected,
+    id,
+    updateFlat
   } = props;
 
   const styles = {
@@ -20,8 +22,14 @@ const Flat = (props) => {
     className += " active";
   }
 
+  const handleClick = () => {
+    if (updateFlat) {
+      updateFlat(id);
+    }
+  };
+
   return (
-    <div className={className} style={styles}>
+    <div className={className} style={styles} onClick={handleClick}>
       <div className="card-category">
         {priceFormatted}
       </div>
