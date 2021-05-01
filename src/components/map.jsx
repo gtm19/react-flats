@@ -31,7 +31,7 @@ class Map extends Component {
 
   render() {
     return (
-      <div id="map-container" className="right-half" />
+      <div id="map-container" className="map-container" />
     );
   }
 }
