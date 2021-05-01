@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <div className="app">
         <FlatList flats={this.flats} selected={selected} updateFlat={this.updateFlat} />
-        <Map />
+        <Map selected={selected} />
       </div>
     );
   }

@@ -8,27 +8,62 @@ class Map extends Component {
     super(props);
 
     this.renderMap = this.renderMap.bind(this);
+    this.renderPoint = this.renderPoint.bind(this);
     this.center = [2.3522, 48.8566];
+
+    this.state = {
+      map: false,
+      marker: false
+    };
   }
 
   componentDidMount() {
     this.renderMap();
   }
 
+  shouldComponentUpdate(nextProps) {
+    const { selected } = this.props;
+    return nextProps.selected.id !== selected.id;
+  }
+
+  componentDidUpdate() {
+    const { map } = this.state;
+    const { selected } = this.props;
+    if (map) {
+      this.renderPoint(selected.lng, selected.lat);
+    }
+  }
+
   renderMap() {
+    const { selected } = this.props;
+    const location = [selected.lng, selected.lat];
+
     const map = new mapboxgl.Map({
       container: "map-container",
       style: "mapbox://styles/mapbox/streets-v9",
       center: this.center,
-      zoom: 10
+      zoom: 13
     });
 
-    return map;
-    // // add map to App state
-    // this.setState({ map });
-    // const marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
-    // // add marker to App state
-    // this.setState({ marker });
+    const marker = new mapboxgl.Marker().setLngLat(location).addTo(map);
+    map.flyTo({
+      center: location
+    });
+
+    this.setState({ map, marker });
+  }
+
+  renderPoint(lng, lat) {
+    const { map, marker } = this.state;
+    const location = [lng, lat];
+    marker.remove();
+
+    const newMarker = new mapboxgl.Marker().setLngLat(location).addTo(map);
+    map.flyTo({
+      center: location,
+      speed: 0.5
+    });
+    this.setState({ marker: newMarker });
   }
 
   render() {
