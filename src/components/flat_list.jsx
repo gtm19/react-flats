@@ -1,9 +1,14 @@
 import React from "react";
+import Flat from "./flat";
 
 const FlatList = (props) => {
   return (
     <div className="flat-list">
-      A list of flats
+      {
+        Array(6).fill().map(() => {
+          return <Flat />;
+        })
+      }
     </div>
   );
 };
