@@ -5,7 +5,8 @@ const Flat = (props) => {
     name,
     imageUrl,
     price,
-    priceCurrency
+    priceCurrency,
+    selected
   } = props;
 
   const styles = {
@@ -14,8 +15,13 @@ const Flat = (props) => {
 
   const priceFormatted = `${price} ${priceCurrency}`;
 
+  let className = "card";
+  if (selected) {
+    className += " active";
+  }
+
   return (
-    <div className="card" style={styles}>
+    <div className={className} style={styles}>
       <div className="card-category">
         {priceFormatted}
       </div>

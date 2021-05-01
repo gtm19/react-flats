@@ -8,7 +8,7 @@ class Map extends Component {
     super(props);
 
     this.renderMap = this.renderMap.bind(this);
-    this.center = [-0.2, 51.5];
+    this.center = [2.3522, 48.8566];
   }
 
   componentDidMount() {
@@ -22,6 +22,8 @@ class Map extends Component {
       center: this.center,
       zoom: 10
     });
+
+    return map;
     // // add map to App state
     // this.setState({ map });
     // const marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
