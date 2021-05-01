@@ -2,11 +2,20 @@ import React from "react";
 import Flat from "./flat";
 
 const FlatList = (props) => {
+  const { flats } = props;
+
   return (
     <div className="flat-list">
       {
-        Array(6).fill().map(() => {
-          return <Flat />;
+        flats.map((flat) => {
+          return (
+            <Flat
+              name={flat.name}
+              imageUrl={flat.imageUrl}
+              price={flat.price}
+              priceCurrency={flat.priceCurrency}
+            />
+          );
         })
       }
     </div>

@@ -16,7 +16,7 @@ const flats = [
     lng: 2.343543
   },
   {
-    name: "Super 60m2 in trendy neighborhood!",
+    name: "Super 60m² in trendy neighborhood!",
     imageUrl: "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat3.jpg",
     price: 150,
     priceCurrency: "EUR",

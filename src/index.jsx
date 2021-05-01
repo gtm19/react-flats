@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './components/app';
-// import flats from './data/flats';
 
 import '../assets/stylesheets/application.scss';
 
