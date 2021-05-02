@@ -27,11 +27,8 @@ class Map extends Component {
   }
 
   componentDidUpdate() {
-    const { map } = this.state;
     const { selected } = this.props;
-    if (map) {
-      this.renderPoint(selected.lng, selected.lat);
-    }
+    this.renderPoint(selected.lng, selected.lat);
   }
 
   renderMap() {
